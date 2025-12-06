@@ -15,3 +15,21 @@ def count_characters(text):
         
     
     return characters
+
+def sort_on(characters):
+    return characters["count"]
+
+def report(characters):
+    sorted_report = []
+    
+    for char, count in characters.items():
+        char_dict = {"char": char, "count": count}
+        sorted_report.append(char_dict)
+
+    sorted_report.sort(reverse=True, key=sort_on)
+
+    for i in sorted_report:
+        if(i["char"].isalpha()):
+            print(f"{i["char"]}: {i["count"]}")
+    
+
